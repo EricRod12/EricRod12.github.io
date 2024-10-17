@@ -10,7 +10,8 @@
             margin: 0;
             padding: 0;
             text-align: center;
-            overflow: hidden; /* Disable scrolling */
+            /* Allow scrolling */
+            overflow: auto; 
         }
         h1 {
             padding: 20px;
@@ -19,6 +20,9 @@
             width: 100vw; /* Full width of the viewport */
             height: 100vh; /* Full height of the viewport */
             margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     </style>
 </head>
@@ -26,13 +30,13 @@
     <h1>Sepsis 30-Day Expire Analytics Dashboard</h1>
     <div class='dashboard-container'>
         <!-- Tableau Embed Code -->
-        <div class='tableauPlaceholder' id='viz1728952742039' style='position: relative; width: 100vw; height: calc(100vh - 60px);'>
+        <div class='tableauPlaceholder' id='viz1728952742039' style='position: relative; width: 100%; height: auto;'>
             <noscript>
                 <a href='#'>
                     <img alt='Sepsis 30Day Expire Analytics' src='https://public.tableau.com/static/images/he/healthcare_ds_project_eda/Sepsis30DayExpireAnalytics/1_rss.png' style='border: none' />
                 </a>
             </noscript>
-            <object class='tableauViz' style='display:none; width: 100%; height: 100%;'>
+            <object class='tableauViz' style='display:none; width: 100%; height: auto;'>
                 <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
                 <param name='embed_code_version' value='3' /> 
                 <param name='site_root' value='' />
@@ -54,7 +58,7 @@
         var divElement = document.getElementById('viz1728952742039');
         var vizElement = divElement.getElementsByTagName('object')[0];
         vizElement.style.width = '100vw'; /* Full width of the viewport */
-        vizElement.style.height = 'calc(100vh - 60px)'; /* Full height minus header space */
+        vizElement.style.height = 'auto'; /* Height adjusts automatically based on content */
         var scriptElement = document.createElement('script');
         scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
         vizElement.parentNode.insertBefore(scriptElement, vizElement);
