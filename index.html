@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Portfolio - Sepsis Dashboard</title>
@@ -24,6 +24,22 @@
         .tableauPlaceholder {
             width: 100%; 
             height: 100vh; /* Ensures the dashboard uses the full height of the window */
+        }
+        .links {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .links a {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: white;
+            background-color: #007BFF;
+            border-radius: 5px;
+        }
+        .links a:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
@@ -54,6 +70,11 @@
                 <param name='filter' value='publish=yes' />
             </object>
         </div>
+    </div>
+    <div class="links">
+        <h2>Additional Projects</h2>
+        <a href="DS6050_Team_4_Evaluating_Robustness_of_CNNs_to_Distribution_Shift__and_Adversarial_Attacks.pdf" target="_blank">CNN Robustness Analysis</a>
+        <a href="DS_5003 Final Project.pdf" target="_blank">Structural Health Monitoring</a>
     </div>
     <script type='text/javascript'>
         var divElement = document.getElementById('viz1728952742039');
