@@ -44,6 +44,8 @@
         .buttons a:hover {
             background-color: #0056b3;
         }
+
+        /* Fullscreen dashboard container */
         .fullscreen-container {
             position: fixed;
             top: 0;
@@ -59,6 +61,25 @@
             height: 100%;
             border: none;
         }
+
+        /* ----------------------------
+           NEW: Back button styling
+           ---------------------------- */
+        .back-button {
+            position: absolute; 
+            top: 20px;        
+            left: 20px;       
+            padding: 10px 15px; 
+            background-color: #007BFF;
+            color: #fff;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .back-button:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
@@ -69,6 +90,7 @@
         <div class="project">
             <h2>Sepsis Survival Prediction</h2>
             <div class="buttons">
+                <!-- This link calls showDashboard() to display the Tableau viz fullscreen -->
                 <a href="#" onclick="showDashboard()">Dashboard</a>
                 <a href="DS_5003 Final Project.pdf" target="_blank">Report (PDF)</a>
                 <a href="DS5003_FinalProjectPresentation.pdf" target="_blank">Presentation (PDF)</a>
@@ -89,10 +111,16 @@
 
     <!-- Fullscreen Dashboard Container -->
     <div id="dashboardContainer" class="fullscreen-container">
+
+        <!-- NEW: Back Arrow Button -->
+        <div class="back-button" onclick="hideDashboard()">← Back</div>
+
         <div class='tableauPlaceholder' id='viz1712345678901' style='width: 100%; height: 100%;'>
             <noscript>
                 <a href='#'>
-                    <img alt='Sepsis 30Day Expire Analytics' src='https://public.tableau.com/static/images/he/healthcare_ds_project_eda/Sepsis30DayExpireAnalytics/1_rss.png' style='border: none' />
+                    <img alt='Sepsis 30Day Expire Analytics' 
+                         src='https://public.tableau.com/static/images/he/healthcare_ds_project_eda/Sepsis30DayExpireAnalytics/1_rss.png' 
+                         style='border: none' />
                 </a>
             </noscript>
             <object class='tableauViz' style='display:none;'>
@@ -102,7 +130,8 @@
                 <param name='name' value='healthcare_ds_project_eda/Sepsis30DayExpireAnalytics' />
                 <param name='tabs' value='no' />
                 <param name='toolbar' value='yes' />
-                <param name='static_image' value='https://public.tableau.com/static/images/he/healthcare_ds_project_eda/Sepsis30DayExpireAnalytics/1.png' />
+                <param name='static_image' 
+                       value='https://public.tableau.com/static/images/he/healthcare_ds_project_eda/Sepsis30DayExpireAnalytics/1.png' />
                 <param name='animate_transition' value='yes' />
                 <param name='display_static_image' value='yes' />
                 <param name='display_spinner' value='yes' />
@@ -116,14 +145,24 @@
 
     <script type='text/javascript'>
         function showDashboard() {
+            // Show the fullscreen container
             document.getElementById('dashboardContainer').style.display = 'block';
+            
+            // Load the Tableau viz
             var divElement = document.getElementById('viz1712345678901');
             var vizElement = divElement.getElementsByTagName('object')[0];
             vizElement.style.width = '100%';
             vizElement.style.height = '100%';
+
+            // Dynamically insert Tableau's JS API script
             var scriptElement = document.createElement('script');
             scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
             vizElement.parentNode.insertBefore(scriptElement, vizElement);
+        }
+
+        // NEW: Hide the fullscreen dashboard when user clicks the "← Back" button
+        function hideDashboard() {
+            document.getElementById('dashboardContainer').style.display = 'none';
         }
     </script>
 </body>
