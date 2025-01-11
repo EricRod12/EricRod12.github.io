@@ -4,31 +4,113 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eric Rodriguez - Data Science Portfolio</title>
+
+    <!-- Google Font (Poppins) -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link 
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" 
+      rel="stylesheet" 
+    />
+
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        /* ----------------------------
+           RESET + BASIC STYLES
+        ---------------------------- */
+        * {
             margin: 0;
             padding: 0;
-            text-align: center;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
             background-color: #f9f9f9;
+            color: #333;
         }
-        h1, h2 {
-            padding: 20px;
+        a {
+            text-decoration: none;
+            color: inherit;
         }
+
+        /* ----------------------------
+           HEADER (HERO SECTION)
+        ---------------------------- */
+        header {
+            background: linear-gradient(135deg, #007BFF 0%, #0056b3 100%);
+            color: #fff;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        header h1 {
+            font-weight: 700;
+            margin-bottom: 10px;
+            font-size: 2.5rem;
+        }
+        header p {
+            font-weight: 300;
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+
+        /* ----------------------------
+           MAIN CONTAINER
+        ---------------------------- */
         .container {
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 20px;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
+
+        /* ----------------------------
+           ABOUT ME SECTION
+        ---------------------------- */
+        .about-me {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 900px;
+            margin-bottom: 40px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .about-me h2 {
+            font-weight: 700;
+            margin-bottom: 15px;
+            font-size: 1.6rem;
+        }
+        .about-me p {
+            line-height: 1.6;
+        }
+
+        /* ----------------------------
+           PROJECT STYLES
+        ---------------------------- */
         .project {
-            width: 80%;
+            width: 100%;
+            max-width: 900px;
             margin: 20px 0;
-            padding: 20px;
+            padding: 30px;
             background-color: white;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
         }
+        .project h2 {
+            font-weight: 700;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        .project p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        /* ----------------------------
+           BUTTON STYLES
+        ---------------------------- */
         .buttons {
             margin-top: 15px;
         }
@@ -36,23 +118,70 @@
             display: inline-block;
             margin: 5px;
             padding: 10px 20px;
-            text-decoration: none;
-            color: white;
+            color: #ffffff;
             background-color: #007BFF;
             border-radius: 5px;
+            font-weight: 500;
+            transition: background-color 0.2s ease;
         }
         .buttons a:hover {
             background-color: #0056b3;
         }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            header p {
+                font-size: 1rem;
+            }
+            .about-me, .project {
+                margin: 10px 0;
+                padding: 20px;
+            }
+        }
     </style>
 </head>
 <body>
-    <h1>Eric Rodriguez - Data Science Portfolio</h1>
+
+    <!-- Hero/Header Section -->
+    <header>
+        <h1>Eric Rodriguez</h1>
+        <p>Aspiring Data Scientist specializing in practical Machine Learning solutions for the healthcare industry.</p>
+    </header>
+
+    <!-- Main Container -->
     <div class="container">
+
+        <!-- About Me Section -->
+        <div class="about-me">
+            <h2>About Me</h2>
+            <p>
+                Welcome! I’m Eric, an early-career data scientist with a passion for leveraging 
+                data-driven insights to improve healthcare outcomes. My experience spans 
+                machine learning, statistical analysis, and data visualization. I believe 
+                that the most impactful data science solutions marry cutting-edge techniques 
+                with interpretable, actionable results — especially in clinical settings 
+                where clarity can save lives. 
+            </p>
+            <p>
+                Below, you’ll find some of my projects, showcasing my work with advanced models, 
+                interpretability (e.g., SHAP), and real-world data. Each project aims to blend 
+                strong technical rigor with a focus on clear insights that drive decision-making.
+            </p>
+        </div>
 
         <!-- Sepsis Project -->
         <div class="project">
             <h2>Sepsis Survival Prediction</h2>
+            <p>
+                In this project, I built a stacked ensemble model to predict the 30-day 
+                mortality risk for sepsis patients. Using SHAP, I explain model predictions 
+                at both the global and individual level, providing actionable insights for 
+                clinicians. Click **Dashboard** to interact with the live model and see 
+                how the predictions and explanations change with patient features.
+            </p>
             <div class="buttons">
                 <!-- Direct link to your Streamlit app -->
                 <a href="https://sepsisdashboard-ericrod12.streamlit.app" target="_blank">Dashboard</a>
@@ -65,12 +194,21 @@
         <!-- Deep Learning Project -->
         <div class="project">
             <h2>Deep Learning - Robustness of CNNs</h2>
+            <p>
+                In this project, my team and I explored the robustness of Convolutional Neural 
+                Networks when faced with distribution shifts and adversarial attacks. We 
+                implemented advanced CNN architectures, tested them under various 
+                perturbation scenarios, and documented the methods to mitigate performance 
+                degradation.
+            </p>
             <div class="buttons">
                 <a href="DS6050_Team_4_Evaluating_Robustness_of_CNNs_to_Distribution_Shift__and_Adversarial_Attacks.pdf" target="_blank">Report (PDF)</a>
                 <a href="2024.12.11-DS6050-Team_4-Project-Presentation.pdf" target="_blank">Presentation (PDF)</a>
                 <a href="https://github.com/EricRod12/deep-learning-final-project" target="_blank">Code (GitHub Repo)</a>
             </div>
         </div>
-    </div>
+
+    </div> <!-- end .container -->
+
 </body>
 </html>
